@@ -75,7 +75,7 @@ fi
 for threads in ${THREADS[@]}; do
  echo " >> Launching workload ${WORKLOAD} in ${threads} threads..."
 
- echo "mkdir -p ./results/4-nodes/${INSTANCES}-clients/${DB}/${WORKLOAD} && ./bin/ycsb run -s ${DB} -P workloads/${WORKLOAD} -threads ${threads} -p statsexportfile=./results/4-nodes/${INSTANCES}-clients/${DB}/${WORKLOAD}/${RESULT_FILE}.csv ${ARGS[@]}" | sh
+ echo "mkdir -p ./results/4-nodes/${INSTANCES}-clients/${DB}/${WORKLOAD} && ./bin/ycsb run -s ${DB} -P workloads/${WORKLOAD} -threads ${threads} -p statsexportfile=./results/4-nodes/${INSTANCES}-clients/${DB}/${WORKLOAD}/${RESULT_FILE}-${threads}.csv -p exportfile=./results/4-nodes/${INSTANCES}-clients/${DB}/${WORKLOAD}/${RESULT_FILE}-${threads}.txt ${ARGS[@]}" | sh
 
  echo " << Finished workload ${WORKLOAD} execution in ${threads} threads!"
 done

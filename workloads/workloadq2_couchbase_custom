@@ -15,15 +15,15 @@
 
 
 # Yahoo! Cloud System Benchmark
-# Workload QUERY 1 ​ ( Filter​ with OFFSET and LIMIT)​
+# Workload QUERY 2 ​ ( JOIN operations with grouping and aggregation)​
 #   Application example: paginated search
 #
 #   query/update/insert ratio: 100/0/0
 #   Default data size: 1 KB records (10 fields, 100 bytes each, plus key)
 #   Request distribution: zipfian
 
-recordcount=100000000
-operationcount=100000000
+recordcount=500000
+operationcount=500000
 workload=com.yahoo.ycsb.workloads.CoreWorkloadExtension
 readallfields=true
 readproportion=0
@@ -39,21 +39,14 @@ threadcount=1
 maxexecutiontime=600
 measurementtype=timeseries+csv
 #measurementtype=histogram
-#exportfile=/work/YCSB/no.txt
-#statsexportfile=/work/YCSB/test.csv
+exportfile=./results/4-nodes/couchbase/workloadq1_couchbase_custom/log.txt
+statsexportfile=./results/4-nodes/couchbase/workloadq1_couchbase_custom/results.csv
 status.interval=1
 
 # couchbase settings
-couchbase.bucket=ycsb-workloadq
-couchbase.host=
-couchbase.password=<to_be_provided>
-
-# bigquery settings
-bigquery.projectid=
-bigquery.dataSetName=
-bigquery.tableName=
-bigquery.pathToKey=
-bigquery.model=time:INTEGER;operations:INTEGER;throughput:FLOAT;type:STRING;latency:FLOAT;threads:INTEGER;
+couchbase.bucket=ycsb-workloadq2
+couchbase.host=localhost
+couchbase.password=workload
 
 # query 2 settings
 query2proportion=1.0
